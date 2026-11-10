@@ -205,7 +205,7 @@ section{padding:88px 0}
 .flow b{display:block;font-size:13px;color:var(--accent-ink)}
 .flow .arrow{flex:0 0 26px;display:grid;place-items:center;color:var(--muted)}
 .flow .arrow svg{width:22px;height:22px}
-@media (max-width:600px){.flow{flex-direction:column}.flow .arrow{flex-basis:28px}.flow .arrow svg{transform:rotate(90deg)}}
+@media (max-width:600px){.flow{flex-direction:column}.flow .arrow{flex:none;display:flex;align-items:center;justify-content:center;height:auto;padding:12px 0;line-height:0}.flow .arrow svg{display:block;width:22px;height:22px;transform:rotate(90deg)}}
 
 /* kits */
 .kits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
