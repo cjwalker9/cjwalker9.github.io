@@ -404,7 +404,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <!-- UI KITS -->
 <section id="kits"><div class="wrap">
-  <div class="sec-head"><div><div class="eyebrow">UI kits</div><h2>Wear them here. Take them home.</h2></div><p>Each kit is a set of design tokens and components, light and dark. Preview any kit on this page, then grab it for your own project.</p></div>
+  <div class="sec-head"><div><div class="eyebrow">UI kits</div><h2>Wear them here. Take them home.</h2></div><p>Each kit is a set of design tokens and components, light and dark. Preview any kit on this page, then grab it for your own project. <a href="https://walkeruxengineering.gumroad.com/l/ui-kit-bundle" target="_blank" rel="noopener">Get all three for $59</a>.</p></div>
   <div class="kits" id="kitCards"></div>
 </div></section>
 
@@ -430,9 +430,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 (function(){
   // ---- Kit registry: add a kit here + a token block in the CSS ----
   var KITS=[
-    {id:'studio',name:'Studio',dot:'#4F46E5',blurb:'The neutral house style for this site: Space Grotesk and Inter with an indigo accent.',sw:['#FAFAF7','#14161B','#4F46E5','#ECEBFE','#F59E0B'],status:'Free with any kit'},
-    {id:'walkerwood',name:'Walker & Wood',dot:'#3F2E22',blurb:'Warm wood tones, Fraunces headlines and pill buttons. Built for shops, rentals and anything handmade.',sw:['#F6EFDF','#3F2E22','#A07C3B','#F4E2B8','#6B7A5E'],status:'Coming soon on Gumroad'},
-    {id:'cuewise',name:'Cuewise',dot:'#0E9F94',blurb:'Calm navy, focus teal and highlighter amber. Big readable type for study and productivity apps.',sw:['#F7F5F0','#142233','#0E9F94','#D9F1EE','#F2B33D'],status:'Coming soon on Gumroad'}
+    {id:'studio',name:'Studio',dot:'#4F46E5',blurb:'The neutral house style for this site: Space Grotesk and Inter with an indigo accent.',sw:['#FAFAF7','#14161B','#4F46E5','#ECEBFE','#F59E0B'],status:'$29 · Free Lite version',url:'https://walkeruxengineering.gumroad.com/l/studio-ui-kit'},
+    {id:'walkerwood',name:'Walker & Wood',dot:'#3F2E22',blurb:'Warm wood tones, Fraunces headlines and pill buttons. Built for shops, rentals and anything handmade.',sw:['#F6EFDF','#3F2E22','#A07C3B','#F4E2B8','#6B7A5E'],status:'$29 · Free Lite version',url:'https://walkeruxengineering.gumroad.com/l/walker-and-wood-ui-kit'},
+    {id:'cuewise',name:'Cuewise',dot:'#0E9F94',blurb:'Calm navy, focus teal and highlighter amber. Big readable type for study and productivity apps.',sw:['#F7F5F0','#142233','#0E9F94','#D9F1EE','#F2B33D'],status:'$29 · Free Lite version',url:'https://walkeruxengineering.gumroad.com/l/cuewise-ui-kit'}
   ];
   var d=document.documentElement,$=function(id){return document.getElementById(id)};
   function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
@@ -441,7 +441,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   $('kitSeg').innerHTML=KITS.map(function(k){return '<button type="button" data-kit-btn="'+k.id+'" aria-pressed="false"><span class="trio" aria-hidden="true">'+k.sw.slice(1,4).map(function(c){return '<i style="background:'+c+'"></i>'}).join('')+'</span>'+k.name+'</button>'}).join('');
   try{if(!localStorage.getItem('cw-kit'))$('kitSeg').classList.add('nudge')}catch(e){$('kitSeg').classList.add('nudge')}
   // kit cards
-  $('kitCards').innerHTML=KITS.map(function(k){return '<div class="card kit"><div class="sw">'+k.sw.map(function(c){return '<i style="background:'+c+'"></i>'}).join('')+'</div><h3>'+k.name+'</h3><p class="muted" style="margin:0">'+k.blurb+'</p><span class="chip">'+k.status+'</span><div class="acts"><button type="button" class="btn primary" data-kit-btn="'+k.id+'">Preview on this page</button></div></div>'}).join('');
+  $('kitCards').innerHTML=KITS.map(function(k){return '<div class="card kit"><div class="sw">'+k.sw.map(function(c){return '<i style="background:'+c+'"></i>'}).join('')+'</div><h3>'+k.name+'</h3><p class="muted" style="margin:0">'+k.blurb+'</p><span class="chip">'+k.status+'</span><div class="acts"><button type="button" class="btn primary" data-kit-btn="'+k.id+'">Preview on this page</button><a class="btn ghost" href="'+k.url+'" target="_blank" rel="noopener" aria-label="Get the '+k.name+' UI kit on Gumroad (opens in a new tab)">Get it on Gumroad</a></div></div>'}).join('');
   function apply(kit,theme,quiet){
     if(kit){d.dataset.kit=kit;save('cw-kit',kit)}
     if(theme){d.dataset.theme=theme;save('cw-theme',theme)}
